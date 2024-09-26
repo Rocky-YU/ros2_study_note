@@ -1,0 +1,25 @@
+# Ros2 workspace
+      workspace
+	.
+	├── build
+	├── install
+	├── log
+	└── src
+	4 directories, 0 files
+	build 目录存储的是中间文件。对于每个包，将创建一个子文件夹，在其中调用例如CMake
+	install 目录是每个软件包将安装到的位置。默认情况下，每个包都将安装到单独的子目录中。
+	log 目录包含有关每个colcon调用的各种日志信息。
+
+# source 一下资源
+	/workspace$	source install/setup.bash
+
+
+# 创建功能包
+ros2 pkg create example_topic_rclcpp --build-type ament_cmake --dependencies rclcpp
+ros2 pkg create example_topic_rclpy --build-type ament_cmake --dependencies rclcpp
+
+# 编译工程
+	1./workspace$ colcon build
+	2./workspace$ colcon build --packages-select YOUR_PKG_NAME  编译指定功能包
+	
+
